@@ -38,7 +38,7 @@
   </div>
 
   <script>
-    // Resize image map coordinates
+    // Resize image map coordinates responsively
     setTimeout(function () {
       function mapResizer(maps) {
         if (!maps) maps = document.getElementsByTagName('map');
@@ -83,14 +83,11 @@
       }
     }, 2000);
 
-    // Force links to open in the current tab (outside iframe)
+    // Force links to open in a new tab
     document.addEventListener('DOMContentLoaded', () => {
       const areas = document.querySelectorAll('area');
       areas.forEach(area => {
-        area.addEventListener('click', (e) => {
-          e.preventDefault();
-          window.parent.location.href = area.href;
-        });
+        area.target = '_blank';
       });
     });
   </script>
